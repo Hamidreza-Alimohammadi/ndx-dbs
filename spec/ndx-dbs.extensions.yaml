@@ -1,0 +1,144 @@
+groups:
+- neurodata_type_def: DBSDevice
+  neurodata_type_inc: Device
+  doc: Specs of the DBS device.
+  attributes:
+  - name: synchronization
+    dtype: text
+    doc: Explain the synchronization settings if the DBS device is separately connected
+      to another recording system.
+    required: false
+  groups:
+  - name: electrodes_group
+    neurodata_type_inc: DBSElectrodes
+    doc: meta info on the group of electrodes used in the DBS experiment.
+  links:
+  - name: endpoint_recording_device
+    target_type: Device
+    doc: endpoint recording device to which the DBS device is connected.
+- neurodata_type_def: DBSElectrodes
+  neurodata_type_inc: DynamicTable
+  name: electrodes_group
+  doc: Meta information of the electrodes through which the DBS is applied to the
+    subject.
+  datasets:
+  - name: el_id
+    neurodata_type_inc: VectorData
+    dtype: text
+    doc: Reference name of the corresponding electrode.
+  - name: polarity
+    neurodata_type_inc: VectorData
+    dtype: text
+    doc: Polarity(neg/pos) of the corresponding electrode.
+  - name: impedance
+    neurodata_type_inc: VectorData
+    dtype: text
+    doc: Impedance of the corresponding electrode.
+  - name: length
+    neurodata_type_inc: VectorData
+    dtype: text
+    doc: Length of the corresponding electrode.
+  - name: tip
+    neurodata_type_inc: VectorData
+    dtype: text
+    doc: Tip surface area information of the corresponding electrode.
+  - name: material
+    neurodata_type_inc: VectorData
+    dtype: text
+    doc: Material of the corresponding electrode.
+  - name: location
+    neurodata_type_inc: VectorData
+    dtype: text
+    doc: Implementation location of the corresponding electrode.
+  - name: comment
+    neurodata_type_inc: VectorData
+    dtype: text
+    doc: Descriptive comments on the corresponding electrode
+- neurodata_type_def: DBSMeta
+  neurodata_type_inc: LabMetaData
+  doc: Information on the stimulation meta data, pulse specs.
+  attributes:
+  - name: stim_state
+    dtype: text
+    doc: Describe the DBS pulse state(ON/OFF) for this specific experiment session.
+      Field information are to be provided based on the stim_state.
+    required: false
+  - name: stim_type
+    dtype: text
+    doc: Describe the DBS stimulation type(e.g. monopolar or bipolar) for this specific
+      experiment session.
+    required: false
+  - name: stim_area
+    dtype: text
+    doc: Describe the DBS stimulation area for this specific experiment session.
+    required: false
+  - name: stim_coordinates
+    dtype: text
+    doc: Describe the DBS stimulation area based on the coordinates from ATLAS for
+      this specific experiment session.
+    required: false
+  - name: pulse_shape
+    dtype: text
+    doc: Describe the DBS pulse shape for this specific experiment session.
+    required: false
+  - name: pulse_width
+    dtype: text
+    doc: Describe the DBS pulse width for this specific experiment session.
+    required: false
+  - name: pulse_frequency
+    dtype: text
+    doc: Describe the DBS pulse frequency for this specific experiment session.
+    required: false
+  - name: pulse_intensity
+    dtype: text
+    doc: Describe the DBS pulse intensity for this specific experiment session.
+    required: false
+  - name: charge_balance
+    dtype: text
+    doc: Describe the charge balance of the DBS stimulus pulse for this specific experiment
+      session.
+    required: false
+- neurodata_type_def: DBSSubject
+  neurodata_type_inc: LabMetaData
+  doc: Information on the DBS subject.
+  attributes:
+  - name: model
+    dtype: text
+    doc: Describe the non-human model of a disease, e.g., 6-OHDA PD model in rats.
+    required: false
+  - name: disease
+    dtype: text
+    doc: Describe the human disease state, e.g., dystonia.
+    required: false
+  - name: controls
+    dtype: text
+    doc: Describe the control procedure in this DBS session/trial/subject.
+    required: false
+  - name: comment
+    dtype: text
+    doc: Enter human-readable comments session/trial/subject.
+    required: false
+- neurodata_type_def: DBSGroup
+  neurodata_type_inc: LabMetaData
+  doc: The main group to integrate necessary components of a DBS experiment. The components
+    are a few attributes,an instance DBSDevice and DBSMeta.
+  attributes:
+  - name: DBS_phase
+    dtype: text
+    doc: Describe the DBS phase for this specific experiment session.
+    required: false
+  - name: comment
+    dtype: text
+    doc: Enter human-readable comments for this specific experiment session.
+    required: false
+  links:
+  - name: DBS_device
+    target_type: DBSDevice
+    doc: Link to the DBSDevice as a reference for DBSElectrodes and main recording
+      device.
+  - name: DBS_meta
+    target_type: DBSMeta
+    doc: Link to the DBSMeta as a reference for stimulation meta data and pulse specs.
+  - name: DBS_subject
+    target_type: DBSSubject
+    doc: Link to the DBSMeta as a reference for DBSSubject.
