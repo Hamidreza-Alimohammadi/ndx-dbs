@@ -6,7 +6,16 @@ This extension is developed to extend NWB data standards to incorporate required
 <img src="https://github.com/Hamidreza-Alimohammadi/ndx-dbs/assets/63550467/63a919ff-d564-49de-98e7-4893bfc3e43f" width="1000">
 </div>
 
-
+## Installation
+Simply clone the repo and navigate to the root directory, then:
+```
+pip install .
+```
+## Test
+A roundTrip test is runnable through ```pytest``` from the root. The test script can be found here:
+```
+\src\pynwb\tests
+```
 ## An example use-case
 The following is an example use case of ```ndx-dbs``` with explanatory comments. First, we build up an ```nwb_file``` and define an endpoint recording device:
 ```python
