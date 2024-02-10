@@ -188,14 +188,8 @@ def main():
                 required=False
             ),
             NWBAttributeSpec(
-                name='disease',
-                doc='Describe the human disease state, e.g., dystonia.',
-                dtype='text',
-                required=False
-            ),
-            NWBAttributeSpec(
                 name='controls',
-                doc='Describe the control procedure in this DBS session/trial/subject.',
+                doc='Describe the controls group in this DBS session/trial/subject.',
                 dtype='text',
                 required=False
             ),

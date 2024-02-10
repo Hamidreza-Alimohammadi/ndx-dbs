@@ -106,13 +106,9 @@ groups:
     dtype: text
     doc: Describe the non-human model of a disease, e.g., 6-OHDA PD model in rats.
     required: false
-  - name: disease
-    dtype: text
-    doc: Describe the human disease state, e.g., dystonia.
-    required: false
   - name: controls
     dtype: text
-    doc: Describe the control procedure in this DBS session/trial/subject.
+    doc: Describe the controls group in this DBS session/trial/subject.
     required: false
   - name: comment
     dtype: text
