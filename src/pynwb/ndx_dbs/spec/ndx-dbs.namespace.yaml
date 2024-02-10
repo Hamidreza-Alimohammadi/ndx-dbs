@@ -1,0 +1,19 @@
+namespaces:
+- author:
+  - Hamidreza Alimohammadi ([AT]DefenseCircuitsLab)
+  contact:
+  - alimohammadi.hamidreza@gmail.com
+  doc: "This extension is developed to extend NWB data standards to incorporate \n\
+    \        DBS(DeepBrainStimulation) experiments."
+  name: ndx-dbs
+  schema:
+  - namespace: core
+    neurodata_types:
+    - Device
+    - LabMetaData
+  - namespace: hdmf-common
+    neurodata_types:
+    - DynamicTable
+    - VectorData
+  - source: ndx-dbs.extensions.yaml
+  version: 0.1.0
